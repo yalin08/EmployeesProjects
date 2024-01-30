@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EmployeesProjects.ViewModels.EmployeeProjectVms
 {
-    internal class EmployeeProjectUpdateVm
+    public class EmployeeProjectUpdateVm
     {
+        public int ID { get; set; }
+        public int ProjectID { get; set; }
+        public int EmployeeID { get; set; }
+       
     }
 }
