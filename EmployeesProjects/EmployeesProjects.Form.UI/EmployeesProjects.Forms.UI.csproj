@@ -9,8 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmployeesProjects.Bll.IServices\EmployeesProjects.Bll.IServices.csproj" />
     <ProjectReference Include="..\EmployeesProjects.Bll.Services\EmployeesProjects.Bll.Services.csproj" />
-    <ProjectReference Include="..\EmployeesProjects.Dal.Repositories\EmployeesProjects.Dal.Repositories.csproj" />
+    <ProjectReference Include="..\EmployeesProjects.ViewModels\EmployeesProjects.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

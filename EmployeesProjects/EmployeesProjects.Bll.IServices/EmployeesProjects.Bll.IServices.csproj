@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeesProjects.Core\EmployeesProjects.Core.csproj" />
+    <ProjectReference Include="..\EmployeesProjects.Dal.Repositories\EmployeesProjects.Dal.Repositories.csproj" />
     <ProjectReference Include="..\EmployeesProjects.ViewModels\EmployeesProjects.ViewModels.csproj" />
   </ItemGroup>
 
