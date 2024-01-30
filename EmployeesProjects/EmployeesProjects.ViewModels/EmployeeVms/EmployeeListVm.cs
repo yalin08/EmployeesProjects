@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace EmployeesProjects.ViewModels.EmployeeVms
 {
-    internal class EmployeeListVm
+    public class EmployeeListVm
     {
-
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public DateTime HireDate { get; set; }
     }
 }
