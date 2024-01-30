@@ -4,6 +4,7 @@ using EmployeesProjects.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeesProjects.Dal.Migrations
 {
     [DbContext(typeof(EmployeesProjectsDbContext))]
-    partial class EmployeesProjectsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240130183700_g")]
+    partial class g
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
