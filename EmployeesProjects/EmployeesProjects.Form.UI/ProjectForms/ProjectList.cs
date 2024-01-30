@@ -37,12 +37,17 @@ namespace EmployeesProjects.Forms.UI.ProjectForms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            ProjectCreate projectCreate = new ProjectCreate();
+            ProjectCreate projectCreate = new ProjectCreate(this);
             projectCreate.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (dvgGetAll.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select from list");
+                return;
+            }
             ProjectListVm project = dvgGetAll.SelectedRows[0].DataBoundItem as ProjectListVm;
 
             ProjectUpdateVm projectUpdateVm = new ProjectUpdateVm()
@@ -60,18 +65,30 @@ namespace EmployeesProjects.Forms.UI.ProjectForms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dvgGetAll.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select from list");
+                return;
+            }
             ProjectListVm project = dvgGetAll.SelectedRows[0].DataBoundItem as ProjectListVm;
             _projectservice.Delete(project.Id);
+            RefreshList();
 
         }
 
         private void dvgGetAll_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            ProjectDetailVm projectDetailVm = new ProjectDetailVm();
-            projectDetailVm = dvgGetAll.SelectedRows[0].DataBoundItem as ProjectDetailVm;
+            if (dvgGetAll.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select from list");
+                return;
+            }
 
-            ProjectDetail projectDetailShow = new ProjectDetail(projectDetailVm);
+            ProjectListVm projectListVm = new ProjectListVm();
+            projectListVm = dvgGetAll.SelectedRows[0].DataBoundItem as ProjectListVm;
+
+            ProjectDetail projectDetailShow = new ProjectDetail(projectListVm.Id);
             projectDetailShow.ShowDialog();
         }
     }

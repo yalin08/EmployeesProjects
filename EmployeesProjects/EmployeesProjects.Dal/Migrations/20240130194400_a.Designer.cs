@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeesProjects.Dal.Migrations
 {
     [DbContext(typeof(EmployeesProjectsDbContext))]
-    [Migration("20240130193810_duzeltme")]
-    partial class duzeltme
+    [Migration("20240130194400_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,20 @@ namespace EmployeesProjects.Dal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Employee");
@@ -45,10 +59,15 @@ namespace EmployeesProjects.Dal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<int?>("EmployeeID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ProjectID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("EmployeeID");
 
                     b.HasIndex("ProjectID");
 
@@ -84,9 +103,18 @@ namespace EmployeesProjects.Dal.Migrations
 
             modelBuilder.Entity("EmployeesProjects.Entities.EmployeeProject", b =>
                 {
+                    b.HasOne("EmployeesProjects.Entities.Employee", null)
+                        .WithMany("EmployeeTask")
+                        .HasForeignKey("EmployeeID");
+
                     b.HasOne("EmployeesProjects.Entities.Project", null)
                         .WithMany("EmployeeProject")
                         .HasForeignKey("ProjectID");
+                });
+
+            modelBuilder.Entity("EmployeesProjects.Entities.Employee", b =>
+                {
+                    b.Navigation("EmployeeTask");
                 });
 
             modelBuilder.Entity("EmployeesProjects.Entities.Project", b =>

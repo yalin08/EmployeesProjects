@@ -22,7 +22,7 @@ namespace EmployeesProjects.Dal
             //   modelBuilder.ApplyConfiguration(new EmployeeTypeConfiguration());
             modelBuilder.Entity<EmployeeProject>().Property(x => x.ID).UseIdentityColumn();
             modelBuilder.Entity<Employee>().Property(x => x.ID).UseIdentityColumn();
-            modelBuilder.Entity<Project>().Property(x => x.ID).UseIdentityColumn();
+           modelBuilder.Entity<Project>().Property(x => x.ID).UseIdentityColumn();
 
 
             base.OnModelCreating(modelBuilder);

@@ -17,11 +17,12 @@ namespace EmployeesProjects.Forms.UI.ProjectForms
     public partial class ProjectCreate : Form
     {
         IProjectService _projectservice;
-
-        public ProjectCreate()
+        ProjectList projectList;
+        public ProjectCreate(ProjectList projectList)
         {
             InitializeComponent();
             _projectservice = new ProjectService();
+            this.projectList = projectList;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -35,6 +36,8 @@ namespace EmployeesProjects.Forms.UI.ProjectForms
             };
 
             _projectservice.Create(project);
+
+            projectList.RefreshList();
         }
     }
 }

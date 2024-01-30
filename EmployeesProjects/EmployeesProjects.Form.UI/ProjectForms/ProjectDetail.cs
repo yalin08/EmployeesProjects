@@ -1,4 +1,5 @@
-﻿using EmployeesProjects.ViewModels.ProjectVms;
+﻿using EmployeesProjects.Bll.Services;
+using EmployeesProjects.ViewModels.ProjectVms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,25 @@ namespace EmployeesProjects.Forms.UI.ProjectForms
 {
     public partial class ProjectDetail : Form
     {
-        ProjectDetailVm _projectDetail;
-        public ProjectDetail(ProjectDetailVm projectDetail)
+        int id;
+        public ProjectDetail(int id)
         {
             InitializeComponent();
-            _projectDetail = projectDetail;
+            this.id = id;
+           
         }
 
         private void ProjectDetail_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _projectDetail;
+            ProjectDetailVm vm = new ProjectService().Detail(id);
+
+            lblName.Text = vm.Name;
+            lblDesc.Text = vm.Description;
+            lblStart.Text=vm.StartDate.ToString();
+            lblEnd.Text=vm.EndDate.ToString();
+            lblEmpName.Text = vm.EmloyeeNames;
+            lblEmpLastName.Text = vm.EmployeeLasNames;
+          
         }
     }
 }

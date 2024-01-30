@@ -39,19 +39,22 @@
             // 
             dvgGetAll.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgGetAll.Dock = DockStyle.Bottom;
-            dvgGetAll.Location = new Point(0, 109);
+            dvgGetAll.Location = new Point(0, 82);
+            dvgGetAll.Margin = new Padding(3, 2, 3, 2);
             dvgGetAll.Name = "dvgGetAll";
             dvgGetAll.RowHeadersWidth = 51;
             dvgGetAll.RowTemplate.Height = 29;
-            dvgGetAll.Size = new Size(800, 341);
+            dvgGetAll.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dvgGetAll.Size = new Size(700, 256);
             dvgGetAll.TabIndex = 0;
             dvgGetAll.CellClick += dvgGetAll_CellClick;
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(122, 34);
+            btnCreate.Location = new Point(107, 26);
+            btnCreate.Margin = new Padding(3, 2, 3, 2);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(94, 29);
+            btnCreate.Size = new Size(82, 22);
             btnCreate.TabIndex = 1;
             btnCreate.Text = "Create";
             btnCreate.UseVisualStyleBackColor = true;
@@ -59,9 +62,10 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(330, 34);
+            btnUpdate.Location = new Point(289, 26);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(94, 29);
+            btnUpdate.Size = new Size(82, 22);
             btnUpdate.TabIndex = 2;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -69,9 +73,10 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(556, 34);
+            btnDelete.Location = new Point(486, 26);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
+            btnDelete.Size = new Size(82, 22);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -79,13 +84,14 @@
             // 
             // ProjectList
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnCreate);
             Controls.Add(dvgGetAll);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ProjectList";
             Text = "ProjectList";
             Load += ProjectList_Load;

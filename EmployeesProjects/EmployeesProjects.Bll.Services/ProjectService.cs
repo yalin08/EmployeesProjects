@@ -67,6 +67,7 @@ namespace EmployeesProjects.Bll.Services
 
             List<ProjectListVm> projectListVms = _projectRepo.GetAll().Select(x => new ProjectListVm
             {
+                Id=x.ID,
                 Name = x.Name,
                 Description = x.Description,
                 StartDate=x.StartDate,

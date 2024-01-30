@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeesProjects.Dal.Migrations
 {
-    public partial class C : Migration
+    public partial class a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,7 +30,11 @@ namespace EmployeesProjects.Dal.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,7 +47,8 @@ namespace EmployeesProjects.Dal.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeID = table.Column<int>(type: "int", nullable: true)
+                    EmployeeID = table.Column<int>(type: "int", nullable: true),
+                    ProjectID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,12 +58,22 @@ namespace EmployeesProjects.Dal.Migrations
                         column: x => x.EmployeeID,
                         principalTable: "Employee",
                         principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_EmployeeProject_Project_ProjectID",
+                        column: x => x.ProjectID,
+                        principalTable: "Project",
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_EmployeeProject_EmployeeID",
                 table: "EmployeeProject",
                 column: "EmployeeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EmployeeProject_ProjectID",
+                table: "EmployeeProject",
+                column: "ProjectID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -67,10 +82,10 @@ namespace EmployeesProjects.Dal.Migrations
                 name: "EmployeeProject");
 
             migrationBuilder.DropTable(
-                name: "Project");
+                name: "Employee");
 
             migrationBuilder.DropTable(
-                name: "Employee");
+                name: "Project");
         }
     }
 }

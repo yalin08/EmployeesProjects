@@ -60,9 +60,14 @@ namespace EmployeesProjects.Dal.Migrations
                     b.Property<int?>("EmployeeID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ProjectID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.HasIndex("EmployeeID");
+
+                    b.HasIndex("ProjectID");
 
                     b.ToTable("EmployeeProject");
                 });
@@ -75,6 +80,20 @@ namespace EmployeesProjects.Dal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("ID");
 
                     b.ToTable("Project");
@@ -85,11 +104,20 @@ namespace EmployeesProjects.Dal.Migrations
                     b.HasOne("EmployeesProjects.Entities.Employee", null)
                         .WithMany("EmployeeTask")
                         .HasForeignKey("EmployeeID");
+
+                    b.HasOne("EmployeesProjects.Entities.Project", null)
+                        .WithMany("EmployeeProject")
+                        .HasForeignKey("ProjectID");
                 });
 
             modelBuilder.Entity("EmployeesProjects.Entities.Employee", b =>
                 {
                     b.Navigation("EmployeeTask");
+                });
+
+            modelBuilder.Entity("EmployeesProjects.Entities.Project", b =>
+                {
+                    b.Navigation("EmployeeProject");
                 });
 #pragma warning restore 612, 618
         }
