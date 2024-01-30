@@ -28,12 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ProjectList";
+            dvgGetAll = new DataGridView();
+            btnCreate = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            ((System.ComponentModel.ISupportInitialize)dvgGetAll).BeginInit();
+            SuspendLayout();
+            // 
+            // dvgGetAll
+            // 
+            dvgGetAll.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgGetAll.Dock = DockStyle.Bottom;
+            dvgGetAll.Location = new Point(0, 109);
+            dvgGetAll.Name = "dvgGetAll";
+            dvgGetAll.RowHeadersWidth = 51;
+            dvgGetAll.RowTemplate.Height = 29;
+            dvgGetAll.Size = new Size(800, 341);
+            dvgGetAll.TabIndex = 0;
+            dvgGetAll.CellClick += dvgGetAll_CellClick;
+            // 
+            // btnCreate
+            // 
+            btnCreate.Location = new Point(122, 34);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(94, 29);
+            btnCreate.TabIndex = 1;
+            btnCreate.Text = "Create";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(330, 34);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(94, 29);
+            btnUpdate.TabIndex = 2;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(556, 34);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // ProjectList
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnCreate);
+            Controls.Add(dvgGetAll);
+            Name = "ProjectList";
+            Text = "ProjectList";
+            Load += ProjectList_Load;
+            ((System.ComponentModel.ISupportInitialize)dvgGetAll).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dvgGetAll;
+        private Button btnCreate;
+        private Button btnUpdate;
+        private Button btnDelete;
     }
 }
