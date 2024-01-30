@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeesProjects.Bll.Services\EmployeesProjects.Bll.Services.csproj" />
+    <ProjectReference Include="..\EmployeesProjects.Core\EmployeesProjects.Core.csproj" />
+    <ProjectReference Include="..\EmployeesProjects.ViewModels\EmployeesProjects.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
