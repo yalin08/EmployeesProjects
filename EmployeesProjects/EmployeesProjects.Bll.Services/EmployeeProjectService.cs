@@ -46,12 +46,6 @@ namespace EmployeesProjects.Bll.Services
             return _employeeProjectRepo.Update(ep);
         }
 
-        public List<EmployeeProjectListVm> GetAll()
-        {
-            List<EmployeeProjectListVm> employeeProjectListVms = _employeeProjectRepo.GetAll().Select(x => new EmployeeProjectListVm { }.ToList();
-            return employeeProjectListVms;
 
-
-        }
     }
 }

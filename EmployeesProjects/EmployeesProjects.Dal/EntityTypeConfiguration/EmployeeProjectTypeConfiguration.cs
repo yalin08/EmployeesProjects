@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace EmployeesProjects.Dal.EntityTypeConfiguration
 {
-    public class EmployeeProjectTypeConfiguration
+    public class EmployeeProjectTypeConfiguration : IEntityTypeConfiguration<EmployeeProject>
     {
-        public void Configure(EntityTypeBuilder<Employee> builder)
+        public void Configure(EntityTypeBuilder<EmployeeProject> builder)
         {
             builder.HasKey(x => x.ID);
             builder.Property(x => x.ID).UseIdentityColumn();
             builder.ToTable("EmployeeProject");
-        
+
+
         }
     }
 }

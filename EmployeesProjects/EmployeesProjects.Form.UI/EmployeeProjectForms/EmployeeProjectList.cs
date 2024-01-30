@@ -28,7 +28,7 @@ namespace EmployeesProjects.Forms.UI.EmployeeProjectForms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            EmployeeProjectUpdate form = new EmployeeProjectUpdate();
+            EmployeeProjectCreate form = new EmployeeProjectCreate();
             form.ShowDialog();
         }
 
@@ -39,7 +39,6 @@ namespace EmployeesProjects.Forms.UI.EmployeeProjectForms
         }
         public void RefreshList()
         { 
-         dataGridView1.DataSource = _employeeProject.GetAll();
         }
     }
 }
